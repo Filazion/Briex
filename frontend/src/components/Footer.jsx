@@ -1,49 +1,64 @@
-import React from "react";
-import { FaMailBulk } from "react-icons/fa";
-import SocialMediaIcons from "./SocialMediaIcons";
+import styles from "../style";
+import { logo } from "../assets";
+import { footerLinks, socialMedia } from "../constants";
 
-export default function Footer() {
-  return (
-    <footer className="bg-blue-400 shadow-md">
-      <div className="flex items-center max-w-6xl mx-auto p-3 justify-between">
-        <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-          <span className="text-gray-900">Briex</span>
-          <span className="text-slate-600">Sentinel</span>
-        </h1>
-        <div className="my-auto">
-          <h2 className="font-bold text-sm sm:text-xl ">Products</h2>
-          <h2 className="font-bold text-sm sm:text-xl ">Features</h2>
-          
-        </div>
-        <div className="my-auto">
-          <h2 className="font-bold text-sm sm:text-xl ">Support</h2>
-          <h2 className="font-bold text-sm sm:text-xl ">Docs</h2>
-          <h2 className="font-bold text-sm sm:text-xl ">Platform</h2>
-          <h2 className="font-bold text-sm sm:text-xl ">Github</h2>
-        </div>
-        <div className="my-auto justify-between">
-        <h2 className="font-bold text-sm sm:text-xl p-2">
-          Subscribe To Our Newsletter
-        </h2>
-        <form
-          action=""
-          className="bg-slate-100 p-2 rounded-lg flex items-center "
-        >
-          <input
-            type="text"
-            placeholder="Enter Your Email"
-            className="bg-transparent focus:outline-none max-w-lg"
+const Footer = () => (
+  <section className= "flex justify-center items-center sm:py-16 py-6 flex-col" >
+    <div className= "flex justify-center items-start md:flex-row flex-col mb-8 w-full">
+      <div className="flex-[1] flex flex-col justify-start mr-10 px-8">
+        <img
+          src="../src/assets/logo.png"
+          alt="Breix.AI"
+          className="w-[266px] h-[72.14px] object-contain"
+        />
+        <p className = "font-cabin font-italic text-dimWhite text-[18px] leading-[30.8px] mt-4 max-w-[312px]">
+          A new way to monitor our infrastructures in the twentty first century.
+        </p>
+      </div>
+
+      <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
+        {footerLinks.map((footerlink) => (
+          <div key={footerlink.title} className={`flex flex-col ss:my-0 my-4 min-w-[150px]`}>
+            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-black">
+              {footerlink.title}
+            </h4>
+            <ul className="list-none mt-4">
+              {footerlink.links.map((link, index) => (
+                <li
+                  key={link.name}
+                  className={`font-poppins font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${
+                    index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
+                  }`}
+                >
+                  {link.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3F3E45]">
+      <p className="font-cabin font-normal text-center text-[18px] leading-[27px] text-black">
+        Copyright Ⓒ 2023 Breix AI. All Rights Reserved.
+      </p>
+
+      <div className="flex flex-row md:mt-0 mt-6">
+        {socialMedia.map((social, index) => (
+          <img
+            key={social.id}
+            src={social.icon}
+            alt={social.id}
+            className={`w-[21px] h-[21px] object-contain cursor-pointer ${
+              index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
+            }`}
+            onClick={() => window.open(social.link)}
           />
-          <FaMailBulk className="text-slate-600" />
-        </form>
-        </div>
+        ))}
       </div>
-      <div className=" flex mx-auto p-2 bg-blue-200 gap-4">
-       <span className="text-grey-800">@2023 Briex Sentinel. All Rights Reserved</span>
-       <span className=" flex text-grey-800">Terms </span>
-       <span className="text-grey-800">Privacy </span>
-       <SocialMediaIcons />
-      </div>
-    </footer>
-  );
-}
+    </div>
+  </section>
+);
+
+export default Footer;

@@ -2,7 +2,7 @@ import React from 'react'
 
 const SignIn = () => {
   return (
-    <div>Sign In</div>
+    <div className="bg-indigo-600 w-full h-screen">Sign In Page</div>
   )
 }
 
