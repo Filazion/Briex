@@ -21,6 +21,7 @@ app.listen(3000, () =>{
     console.log('Confirmation: Server is running successfully...');
 });
 
+
 //let's use our apis
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
