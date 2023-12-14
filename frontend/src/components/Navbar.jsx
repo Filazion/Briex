@@ -58,9 +58,14 @@ const Navbar = () => {
             </li>
           </Link>
           <ul className="flex gap-6 justify-end">
-            <Link to="/sign-in">
+            <Link to="/signin">
               <li className="flex gap-6 justify-end sm:inline text-slate-700 hover:text-gray-500">
                 Login
+              </li>
+            </Link>
+            <Link to="/signup">
+              <li className="flex gap-6 justify-end sm:inline text-slate-700 hover:text-gray-500">
+                Sign Up
               </li>
             </Link>
             <Button>Demo</Button>

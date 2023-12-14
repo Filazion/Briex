@@ -34,12 +34,11 @@ const SignUp = () => {
     setLoading(false);
     //console.log(data);      
     setError(null);
-    navigate('/sign-in');
+    navigate('/signin');
     } catch (error) {
       setLoading(false);
       setError(error.message);
     }
-    
   };
   console.log(formData);
   return (
